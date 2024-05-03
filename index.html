@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Auth Page</title>
+        <link href="style.css" rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="top-plane"></div>
+           
+            <div class="bottom-plane"></div>
+            <div class="container-fluid px-5 py-5 mt-5">
+                <div class="row mt-5">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                               <!-- Logo -->
+                                <div class="auth-brand text-center text-lg-left">
+                                    <div class="auth-logo mb-4">
+                                        <a href="<?php echo base_url('login')?>" class="logo logo-dark text-center">
+                                            <span class="logo-lg">
+                                                <img src="logo-light.png" style="width: 12rem;">
+                                            </span>
+                                        </a>
+
+                                        <!-- <a href="<?php echo base_url('login')?>" class="logo logo-light text-center">
+                                            <span class="logo-lg">
+                                                <img src="logo-light.png" style="width: 7rem;">
+                                            </span>
+                                        </a> -->
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs nav-bordered">
+                                    <li class="nav-item">
+                                        <a href="#tab-login" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                            Log In
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#tab-signup" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                            Sign Up
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane show active" id="tab-login">
+                                        <p class="text-muted mt-3 mb-3">Enter your email address and password to access account.</p>
+                                            <form id="LoginForm">
+                                           
+                                            <div class="form-group">
+                                                <label for="emailaddress">Email address/Username</label>
+                                                <input class="form-control" type="text" id="id_username" name="user" placeholder="Enter your email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <a href="<?php echo base_url('login/forssap');?>" class="text-muted float-right"><small>Forgot your password?</small></a>
+                                                <label for="password">Password</label>
+                                                <input class="form-control" type="password" id="id_password" name="password" placeholder="Enter your password" required>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <div class="g-recaptcha" data-sitekey=""></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 offset-md-4">
+                                                    <div class="form-group mb-0 text-center">
+                                                        <button class="btn btn-primary btn-block" type="submit">Log In </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                        <!-- end form-->
+                                    </div>
+        
+                                   
+                                    <div class="tab-pane" id="tab-signup">
+                                        <p class="text-muted mt-3 mb-3">Don't have an account? Create your account, it takes less than a minute</p>
+                                        <!-- form -->
+                                        <form  method="POST" action="<?php echo base_url('registration/register_user_global');?>" autocomplete="off">
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+                                            <div class="form-group">
+                                                <label for="emailaddress">Email address</label>
+                                                <input class="form-control" type="email" id="email_u" name="email_u" required placeholder="Enter your email">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input name="agreement" type="checkbox" class="form-check-input" required>
+                                                <label class="form-check-label" for="agreement">By signing up, you agree to our
+                                                  <a href="<?php echo site_url('terms'); ?>">Terms of Use</a> and <a href="<?php echo site_url('policy'); ?>">Privacy Policy</a>.
+                                                </label>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <div class="g-recaptcha" data-sitekey=""></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 offset-md-4">
+                                                    <div class="form-group mb-0 text-center">
+                                                        <button class="btn btn-primary waves-effect waves-light btn-block" type="submit" name="btn-login"> Sign Up </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </form>
+                                        <!-- end form-->
+                                    </div>
+        
+                                </div>
+        
+                            </div><!-- END CARD BODY -->
+
+                        </div><!-- END CARD -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    </body>
+</html>
